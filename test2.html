@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select and View Tab</title>
+    <!-- Include Bootstrap CSS and JS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="card-title">Select an Option</h5>
+            </div>
+            <div class="card-body">
+                <label class="form-label">What information do you want?</label>
+                <select id="contentSelect" class="form-control">
+                    <option value="" selected disabled>Select Content</option>
+                    <option value="biodata">Biodata</option>
+                    <option value="promotion">Promotion</option>
+                    <option value="qualification">Qualification</option>
+                    <option value="work_experience">Work Experience</option>
+                </select>
+            </div>
+            <div class="card-footer bg-white">
+                <button onclick="showContent()" class="btn btn-primary">OK</button>
+            </div>
+        </div>
+
+        <ul class="nav nav-tabs mt-3" id="ViewTabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#biodata">Biodata</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#promotion">Promotion</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#qualification">Qualification</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#work_experience">Work Experience</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="View">
+            <div class="tab-pane fade show active" id="biodata" role="tabpanel">
+                <h3>Biodata</h3>
+                <p>This is the content for Biodata.</p>
+            </div>
+            <div class="tab-pane fade" id="promotion" role="tabpanel">
+                <h3>Promotion</h3>
+                <p>This is the content for Promotion.</p>
+            </div>
+            <div class="tab-pane fade" id="qualification" role="tabpanel">
+                <h3>Qualification</h3>
+                <p>This is the content for Qualification.</p>
+            </div>
+            <div class="tab-pane fade" id="work_experience" role="tabpanel">
+                <h3>Work Experience</h3>
+                <p>This is the content for Work Experience.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showContent() {
+            var selectedOption = document.getElementById("contentSelect").value;
+            if (selectedOption) {
+                $('#View .tab-pane').removeClass('show active');
+                $('#View #' + selectedOption).addClass('show active');
+            }
+        }
+    </script>
+</body>
+</html>

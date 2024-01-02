@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select and View Tab</title>
+    <!-- Include Bootstrap CSS and JS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Select an Option</h5>
+                <select id="contentSelect" class="form-control">
+                    <option value="" selected disabled>Select Content</option>
+                    <option value="content1">Content 1</option>
+                    <option value="content2">Content 2</option>
+                    <option value="content3">Content 3</option>
+                </select>
+            </div>
+        </div>
+    <div class="tab-content mt-3" id="contentTabs">
+            <div class="tab-pane fade" id="content1" role="tabpanel">
+                <h3>Content 1</h3>
+                <p>This is the content of option 1.</p>
+            </div>
+            <div class="tab-pane fade" id="content2" role="tabpanel">
+                <h3>Content 2</h3>
+                <p>This is the content of option 2.</p>
+            </div>
+            <div class="tab-pane fade" id="content3" role="tabpanel">
+                <h3>Content 3</h3>
+                <p>This is the content of option 3.</p>
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        $('#contentSelect').change(function () {
+            var selectedContent = $(this).val();
+            $('#contentTabs .tab-pane').removeClass('show active');
+            $('#contentTabs #' + selectedContent).addClass('show active');
+        });
+    </script>
+</body>
+</html>
